@@ -1,14 +1,16 @@
 # Fitness Studio Booking System
 
 A modern, dark-themed booking system for a fictional fitness studio built with FastAPI and an elegant UI. This system allows clients to view available fitness classes and book spots in their preferred sessions.
+
+
+![Fitness Studio UI](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)
+
+
 ## 🎥 Demo Video
 
 Check out the full walkthrough of the Fitness Studio Booking System:
 
 [![Watch the Demo](https://cdn.loom.com/sessions/thumbnails/6a52ea39e88648eba3791500bbe559e1-with-play.gif)](https://www.loom.com/share/6a52ea39e88648eba3791500bbe559e1?sid=0f7e352a-24e4-4d83-99f7-b691cf96f1d5)
-
-
-![Fitness Studio UI](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)
 
 ## ✨ Features
 
