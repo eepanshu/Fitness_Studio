@@ -1,0 +1,30 @@
+[
+  {
+    "id": "a45fd161-e426-45f3-9748-dfc43e199bd0",
+    "class_id": "1b338226-1af2-4c10-a840-46e0fb8b1836",
+    "client_name": "John Doe",
+    "client_email": "john.doe@example.com",
+    "booking_date": "2025-08-08T05:08:25.588198+05:30"
+  },
+  {
+    "id": "43a0bc63-2df2-4034-b8a9-fae2fb2f16e5",
+    "class_id": "1b338226-1af2-4c10-a840-46e0fb8b1836",
+    "client_name": "Jane Smith",
+    "client_email": "jane.smith@example.com",
+    "booking_date": "2025-08-08T05:08:31.749426+05:30"
+  },
+  {
+    "id": "39b6914e-eb1b-4d9e-a7c9-51d4214d5aff",
+    "class_id": "b8a36b18-f540-476c-af27-07d79c1f0285",
+    "client_name": "deep",
+    "client_email": "deepikabhadauria7983@gmail.com",
+    "booking_date": "2025-08-08T07:37:32.529276"
+  },
+  {
+    "id": "25f38596-d0ed-4645-8c99-5bb524827c13",
+    "class_id": "f75c68dd-1e78-49e0-8179-c7df914d1ef4",
+    "client_name": "deep",
+    "client_email": "deepikabhadauria7983@gmail.com",
+    "booking_date": "2025-08-08T07:44:52.721609"
+  }
+]

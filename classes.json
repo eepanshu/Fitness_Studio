@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1b338226-1af2-4c10-a840-46e0fb8b1836",
+    "name": "Yoga Basics",
+    "instructor": "Sarah Johnson",
+    "date_time": "2025-08-09T14:07:59.685232+05:30",
+    "total_slots": 15,
+    "available_slots": 13,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "63eb2e92-18bd-4f39-ba22-782c656c93da",
+    "name": "Zumba Dance",
+    "instructor": "Maria Rodriguez",
+    "date_time": "2025-08-09T23:07:59.685232+05:30",
+    "total_slots": 20,
+    "available_slots": 20,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "15e581fb-6af9-426c-b97d-1bb5e0884f55",
+    "name": "HIIT Training",
+    "instructor": "Mike Chen",
+    "date_time": "2025-08-10T12:07:59.685232+05:30",
+    "total_slots": 12,
+    "available_slots": 12,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "f75c68dd-1e78-49e0-8179-c7df914d1ef4",
+    "name": "Pilates",
+    "instructor": "Emma Wilson",
+    "date_time": "2025-08-10T22:07:59.685232+05:30",
+    "total_slots": 10,
+    "available_slots": 9,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "bd510fdd-2613-4e25-9ea6-7a35f1cb18f7",
+    "name": "Strength Training",
+    "instructor": "David Brown",
+    "date_time": "2025-08-11T13:07:59.685232+05:30",
+    "total_slots": 8,
+    "available_slots": 8,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "e4056247-4c35-4bb3-b4f4-2a4a47fec2b5",
+    "name": "Cardio Kickboxing",
+    "instructor": "Lisa Park",
+    "date_time": "2025-08-12T00:07:59.685232+05:30",
+    "total_slots": 16,
+    "available_slots": 16,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "e75341d7-aa58-4989-87e8-a0b9a64ce26e",
+    "name": "Yoga Advanced",
+    "instructor": "Sarah Johnson",
+    "date_time": "2025-08-12T15:07:59.685232+05:30",
+    "total_slots": 12,
+    "available_slots": 12,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "b8a36b18-f540-476c-af27-07d79c1f0285",
+    "name": "Dance Fitness",
+    "instructor": "Maria Rodriguez",
+    "date_time": "2025-08-13T21:07:59.685232+05:30",
+    "total_slots": 18,
+    "available_slots": 17,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "62d1654d-663a-45fc-ad9a-10ae89875961",
+    "name": "fitness physio",
+    "instructor": "Dax_steven",
+    "date_time": "2025-08-09T21:52:00+05:30",
+    "total_slots": 10,
+    "available_slots": 10,
+    "duration_minutes": 60,
+    "timezone": "Asia/Kolkata"
+  },
+  {
+    "id": "e6510bb2-3223-48a9-8576-04277b4ce038",
+    "name": "fitness physio",
+    "instructor": "Dax_steven",
+    "date_time": "2025-08-09T10:47:00+05:30",
+    "total_slots": 10,
+    "available_slots": 10,
+    "duration_minutes": 40,
+    "timezone": "Asia/Kolkata"
+  }
+]

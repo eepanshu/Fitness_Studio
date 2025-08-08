@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Studio Booking System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Neon Lines -->
+    <div class="neon-line"></div>
+    <div class="neon-line"></div>
+
+    <!-- Floating Fitness Icons -->
+    <div class="fitness-icons">
+        <i class="fas fa-dumbbell fitness-icon" style="top: 10%; left: 10%;"></i>
+        <i class="fas fa-running fitness-icon" style="top: 30%; left: 80%;"></i>
+        <i class="fas fa-heartbeat fitness-icon" style="top: 60%; left: 20%;"></i>
+        <i class="fas fa-bicycle fitness-icon" style="top: 80%; left: 70%;"></i>
+    </div>
+
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header">
+                <h1><i class="fas fa-dumbbell"></i> Fitness Studio Booking System</h1>
+                <p class="text-muted">Manage classes, bookings, and clients with ease</p>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="classes-tab" data-bs-toggle="tab" data-bs-target="#classes" type="button" role="tab">
+                        <i class="fas fa-calendar-alt"></i> Classes
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab">
+                        <i class="fas fa-bookmark"></i> Bookings
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="add-class-tab" data-bs-toggle="tab" data-bs-target="#add-class" type="button" role="tab">
+                        <i class="fas fa-plus"></i> Add Class
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="add-booking-tab" data-bs-toggle="tab" data-bs-target="#add-booking" type="button" role="tab">
+                        <i class="fas fa-user-plus"></i> Book Class
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="myTabContent">
+                <!-- Classes Tab -->
+                <div class="tab-pane fade show active" id="classes" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-calendar-alt"></i> Available Classes</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="loading" id="classes-loading">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Loading classes...</p>
+                            </div>
+                            <div id="classes-content">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="classes-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Instructor</th>
+                                                <th>Date & Time</th>
+                                                <th>Available Slots</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="classes-tbody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div class="tab-pane fade" id="bookings" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-bookmark"></i> View Bookings</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="booking-email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="booking-email" name="email" placeholder="Enter email to view bookings">
+                                        <button class="btn btn-primary" onclick="app.getBookings()">
+                                            <i class="fas fa-search"></i> Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="loading" id="bookings-loading">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Loading bookings...</p>
+                            </div>
+                            <div id="bookings-content">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="bookings-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Client Name</th>
+                                                <th>Email</th>
+                                                <th>Class Name</th>
+                                                <th>Booking Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="bookings-tbody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Class Tab -->
+                <div class="tab-pane fade" id="add-class" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-plus"></i> Add New Class</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="add-class-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class-name" class="form-label">Class Name</label>
+                                        <input type="text" class="form-control" id="class-name" name="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class-instructor" class="form-label">Instructor</label>
+                                        <input type="text" class="form-control" id="class-instructor" name="instructor" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class-date" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="class-date" name="date" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class-time" class="form-label">Time</label>
+                                        <input type="time" class="form-control" id="class-time" name="time" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class-slots" class="form-label">Total Slots</label>
+                                        <input type="number" class="form-control" id="class-slots" name="slots" min="1" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class-duration" class="form-label">Duration (minutes)</label>
+                                        <input type="number" class="form-control" id="class-duration" name="duration" min="15" value="60" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-plus"></i> Add Class
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Class Tab -->
+                <div class="tab-pane fade" id="add-booking" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-user-plus"></i> Book a Class</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="book-class-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="booking-class-id" class="form-label">Select Class</label>
+                                        <select class="form-control" id="booking-class-id" name="booking-class-id" required>
+                                            <option value="">Choose a class...</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="booking-client-name" class="form-label">Client Name</label>
+                                        <input type="text" class="form-control" id="booking-client-name" name="booking-client-name" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="booking-client-email" class="form-label">Client Email</label>
+                                        <input type="email" class="form-control" id="booking-client-email" name="booking-client-email" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-bookmark"></i> Book Class
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Class Modal -->
+    <div class="modal fade" id="editClassModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit Class</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-class-form">
+                        <input type="hidden" id="edit-class-id">
+                        <div class="mb-3">
+                            <label for="edit-class-name" class="form-label">Class Name</label>
+                            <input type="text" class="form-control" id="edit-class-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-class-instructor" class="form-label">Instructor</label>
+                            <input type="text" class="form-control" id="edit-class-instructor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-class-slots" class="form-label">Available Slots</label>
+                            <input type="number" class="form-control" id="edit-class-slots" min="0" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="app.updateClass()">Update Class</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alert-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle" onclick="app.toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <h5><i class="fas fa-robot"></i> Fitness Assistant</h5>
+                <button class="btn-close btn-close-white" onclick="app.toggleChatbot()"></button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot">
+                    Hi! I'm your Fitness Assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" class="form-control" id="chatbot-input" 
+                       placeholder="Ask about classes, bookings, etc..."
+                       onkeypress="if(event.key === 'Enter') app.sendChatMessage()">
+                <button class="btn btn-primary" onclick="app.sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Help -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1000;">
+        <div class="card" id="keyboard-shortcuts-card" style="width: 300px; opacity: 0.9;">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0"><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h6>
+                <button type="button" class="btn btn-sm btn-outline-light" id="minimize-shortcuts-btn" title="Minimize" onclick="toggleShortcutsCard()" style="font-size: 1.1rem; padding: 2px 8px;">&minus;</button>
+            </div>
+            <div class="card-body p-2">
+                <small class="text-muted">
+                    <div><kbd>Ctrl/Cmd + N</kbd> - Add New Class</div>
+                    <div><kbd>Ctrl/Cmd + B</kbd> - Book Class</div>
+                    <div><kbd>Esc</kbd> - Close Modal</div>
+                </small>
+            </div>
+        </div>
+    </div>
+    <script>
+    function toggleShortcutsCard() {
+        var card = document.getElementById('keyboard-shortcuts-card');
+        if (card) {
+            if (card.classList.contains('minimized')) {
+                card.classList.remove('minimized');
+                card.querySelector('.card-body').style.display = '';
+                card.querySelector('#minimize-shortcuts-btn').innerHTML = '&minus;';
+            } else {
+                card.classList.add('minimized');
+                card.querySelector('.card-body').style.display = 'none';
+                card.querySelector('#minimize-shortcuts-btn').innerHTML = '&#43;';
+            }
+        }
+    }
+    </script>
+    <style>
+    #keyboard-shortcuts-card.minimized {
+        width: 180px !important;
+        transition: width 0.2s;
+    }
+    #keyboard-shortcuts-card.minimized .card-header h6 {
+        font-size: 1rem;
+    }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
